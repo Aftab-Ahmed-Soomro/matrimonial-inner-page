@@ -1,0 +1,2932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubbh Vivah Header</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .custom-header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+        }
+        
+        .hamburger-btn {
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-btn:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .hamburger-btn .line {
+            width: 22px;
+            height: 2px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: 0.3s;
+            border-radius: 1px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .logo-container img {
+            height: 40px;
+            width: auto;
+            max-width: 180px;
+        }
+        
+        .notification-btn {
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            position: relative;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .notification-btn:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .notification-btn i {
+            font-size: 20px;
+            color: #8B4A8B;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+        }
+        
+        /* Custom logo styling to match the gradient */
+        .custom-logo {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            background: linear-gradient(45deg, #8B4A8B, #D63384);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 24px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(45deg, #8B4A8B, #D63384);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .custom-header {
+                padding: 10px 0;
+            }
+            
+            .logo-container img {
+                height: 35px;
+                max-width: 150px;
+            }
+            
+            .custom-logo {
+                font-size: 20px;
+            }
+            
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+            
+            .hamburger-btn .line {
+                width: 20px;
+            }
+            
+            .notification-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .notification-btn i {
+                font-size: 18px;
+            }
+        }
+        
+        /* Body padding to account for fixed header */
+        body {
+            padding-top: 70px;
+            background-color: #f8f9fa;
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding-top: 65px;
+            }
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            min-height: 100vh;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs-container {
+            background-color: white;
+            border-bottom: 1px solid #e9ecef;
+            padding: 15px 0 10px 0;
+        }
+        
+        .nav-tabs-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-tab {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            margin-right: 10px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .nav-tab.active {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .nav-tab:hover:not(.active) {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-action-btn {
+            background: none;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-action-btn:hover {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        
+        /* Profile Card */
+        .profile-card {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .online-indicator {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 12px;
+            height: 12px;
+            background-color: #28a745;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        
+        .profile-actions-top {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        
+        .profile-action-btn {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 8px;
+            border-radius: 8px;
+            color: white;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .profile-action-btn .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 40px 20px 20px 20px;
+            color: white;
+        }
+        
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .verified-icon {
+            color: #28a745;
+            font-size: 18px;
+        }
+        
+        .profile-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .profile-details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .profile-location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .profile-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .action-btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .skip-btn:hover {
+            background: rgba(220, 53, 69, 0.8);
+            border-color: #dc3545;
+        }
+        
+        .like-btn:hover {
+            background: rgba(220, 53, 69, 0.8);
+            border-color: #dc3545;
+        }
+        
+        .message-btn:hover {
+            background: rgba(40, 167, 69, 0.8);
+            border-color: #28a745;
+        }
+        
+        .shortlist-btn:hover {
+            background: rgba(255, 193, 7, 0.8);
+            border-color: #ffc107;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .about-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .about-text {
+            color: #6c757d;
+            line-height: 1.6;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Profile Details Sections */
+        .details-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .section-icon {
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 15px;
+        }
+        
+        .detail-item {
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            min-width: 0;
+        }
+        
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .detail-icon i {
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .detail-content {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+        
+        .detail-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 2px;
+        }
+        
+        .detail-value {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Background Colors */
+        .pink-bg {
+            background-color: #fce4ec;
+        }
+        
+        .cyan-bg {
+            background-color: #e0f2f1;
+        }
+        
+        .red-bg {
+            background-color: #ffebee;
+        }
+        
+        .yellow-bg {
+            background-color: #fff9c4;
+        }
+        
+        .purple-bg {
+            background-color: #f3e5f5;
+        }
+        
+        .pink-light-bg {
+            background-color: #fce4ec;
+        }
+        
+        .blue-bg {
+            background-color: #e3f2fd;
+        }
+        
+        .green-bg {
+            background-color: #e8f5e8;
+        }
+        
+        .yellow-light-bg {
+            background-color: #fff8e1;
+        }
+        
+        .blue-light-bg {
+            background-color: #e1f5fe;
+        }
+        
+        .green-light-bg {
+            background-color: #f1f8e9;
+        }
+        
+        .red-light-bg {
+            background-color: #ffebee;
+        }
+        
+        /* Profile Match Section */
+        .match-card {
+            background: linear-gradient(135deg, #e91e63, #ad1457);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+        }
+        
+        .match-photos {
+            display: flex;
+            gap: -10px;
+            position: relative;
+        }
+        
+        .photo-container {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            position: relative;
+        }
+        
+        .photo-container:nth-child(2) {
+            margin-left: -15px;
+        }
+        
+        .match-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .match-info {
+            flex: 1;
+        }
+        
+        .match-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            color: white;
+        }
+        
+        .match-percentage {
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .similarities-section {
+            margin-top: 20px;
+        }
+        
+        .similarities-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .similarity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .similarity-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .similarity-item.single-similarity {
+            grid-column: 1 / -1;
+        }
+        
+        .similarity-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .similarity-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .similarity-icon i {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .similarity-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #666;
+            flex: 1;
+        }
+        
+        .match-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .match-indicator.green {
+            background-color: #28a745;
+        }
+        
+        .match-indicator.red {
+            background-color: #dc3545;
+        }
+        
+        .similarity-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+        
+        /* Match Background Colors */
+        .green-match-bg {
+            background-color: #d4edda;
+        }
+        
+        .purple-match-bg {
+            background-color: #e2e3ff;
+        }
+        
+        .yellow-match-bg {
+            background-color: #fff3cd;
+        }
+        
+        .pink-match-bg {
+            background-color: #f8d7da;
+        }
+        
+        .purple-light-match-bg {
+            background-color: #e7e3ff;
+        }
+        
+        .blue-match-bg {
+            background-color: #cce7ff;
+        }
+        
+        .red-match-bg {
+            background-color: #ffcccc;
+        }
+        
+        .cyan-match-bg {
+            background-color: #ccf2ff;
+        }
+        
+        .cyan-light-match-bg {
+            background-color: #e0f7ff;
+        }
+        
+        /* Premium Section */
+        .premium-section {
+            margin-top: 25px;
+        }
+        
+        .premium-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #e91e63, #ad1457);
+            border: none;
+            border-radius: 25px;
+            padding: 15px 20px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .premium-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
+        }
+        
+        .premium-btn i {
+            font-size: 18px;
+        }
+        
+        /* Desktop Layout Adjustments */
+        @media (min-width: 992px) {
+            .main-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .profile-content-wrapper {
+                display: grid;
+                grid-template-columns: 400px 1fr;
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            .profile-card {
+                position: sticky;
+                top: 90px;
+            }
+            
+            .details-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .details-section {
+                margin: 0;
+            }
+
+            .about-section {
+                grid-column: 1 / -1;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .match-section {
+                grid-column: 1 / -1;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .similarity-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .similarity-item.single-similarity {
+                grid-column: span 3;
+            }
+
+            .premium-section {
+                max-width: 400px;
+                margin: 25px auto 0;
+            }
+
+            /* Header adjustments for desktop */
+            .custom-header .container-fluid {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .logo-container img {
+                height: 45px;
+                max-width: 200px;
+            }
+
+            .custom-logo {
+                font-size: 28px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            /* Navigation tabs adjustments */
+            .nav-tabs-container .container-fluid {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .nav-tab {
+                padding: 10px 25px;
+                font-size: 15px;
+            }
+
+            /* Profile card adjustments */
+            .profile-image-container {
+                max-height: 600px;
+            }
+
+            .profile-name {
+                font-size: 28px;
+            }
+
+            .profile-details {
+                font-size: 16px;
+                gap: 20px;
+            }
+
+            .action-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 20px;
+            }
+
+            /* Details sections adjustments */
+            .section-title {
+                font-size: 20px;
+            }
+
+            .detail-item {
+                padding: 15px;
+            }
+
+            .detail-label {
+                font-size: 14px;
+            }
+
+            .detail-value {
+                font-size: 16px;
+            }
+        }
+
+        /* Large Desktop Layout Adjustments */
+        @media (min-width: 1400px) {
+            .main-content {
+                max-width: 1400px;
+            }
+
+            .custom-header .container-fluid,
+            .nav-tabs-container .container-fluid {
+                max-width: 1400px;
+            }
+
+            .profile-content-wrapper {
+                grid-template-columns: 450px 1fr;
+                gap: 40px;
+            }
+
+            .similarity-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .similarity-item.single-similarity {
+                grid-column: span 4;
+            }
+        }
+
+        /* Adjust container padding */
+        .container-fluid {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        @media (min-width: 992px) {
+            .container-fluid {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+
+        /* Add new background colors for location items */
+        .orange-bg {
+            background-color: #fff3e0;
+        }
+        
+        .cyan-light-bg {
+            background-color: #e0f7fa;
+        }
+        
+        .purple-light-bg {
+            background-color: #f3e5f5;
+        }
+
+        /* Add new background color for contact item */
+        .teal-bg {
+            background-color: #e0f2f1;
+        }
+
+        /* Education Table Styles */
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .education-table th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .education-table td {
+            padding: 12px;
+            font-size: 14px;
+            color: #495057;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .education-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .education-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .status-completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-ongoing {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        @media (max-width: 768px) {
+            .education-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        /* Career Table Styles - Matching Education Table */
+        .career-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .career-table th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .career-table td {
+            padding: 12px;
+            font-size: 14px;
+            color: #495057;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .career-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .career-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .career-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        /* Add new background colors for physical attributes */
+        .orange-light-bg {
+            background-color: #fff3e0;
+        }
+        
+        .teal-light-bg {
+            background-color: #e0f2f1;
+        }
+
+        /* Language Section Styles */
+        .language-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .language-chip {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .mother-tongue-chip {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        /* Hobbies & Interest Styles */
+        .interest-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .interest-chip {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .interest-chip i {
+            font-size: 12px;
+        }
+
+        .hobby-chip {
+            background-color: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .music-chip {
+            background-color: #f3e5f5;
+            color: #9c27b0;
+        }
+
+        .movie-chip {
+            background-color: #fce4ec;
+            color: #e91e63;
+        }
+
+        .sport-chip {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .cuisine-chip {
+            background-color: #fff3e0;
+            color: #f57c00;
+        }
+
+        .book-chip {
+            background-color: #efebe9;
+            color: #795548;
+        }
+
+        .tv-chip {
+            background-color: #e0f7fa;
+            color: #00acc1;
+        }
+
+        .fitness-chip {
+            background-color: #f1f8e9;
+            color: #689f38;
+        }
+
+        .fashion-chip {
+            background-color: #fce4ec;
+            color: #d81b60;
+        }
+
+        /* Personal Attitude Styles */
+        .attitude-chip {
+            background-color: #e8eaf6;
+            color: #3f51b5;
+            padding: 6px 15px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin: 4px;
+            font-size: 13px;
+            gap: 6px;
+        }
+
+        .attitude-chip i {
+            font-size: 14px;
+        }
+
+        .attitude-value {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .attitude-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .value-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 2px;
+        }
+
+        .value-tag {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        /* Profile Header Styles */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .member-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .member-id {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-right: 15px;
+            border-right: 2px solid #e0e0e0;
+        }
+
+        .member-id i {
+            color: #5c6bc0;
+            font-size: 16px;
+        }
+
+        .id-number {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .profile-relation {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-relation i {
+            color: #7e57c2;
+            font-size: 16px;
+        }
+
+        .relation-text {
+            font-weight: 500;
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* Partner Preference Styles */
+        .preference-section {
+            display: none;
+        }
+
+        .preference-section.active {
+            display: block;
+        }
+
+        .preference-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .preference-title {
+            font-size: 20px;
+            color: #333;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .preference-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Tab Content Styles */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Detailed Profile Tab */
+        #detailed-profile {
+            display: block;
+        }
+
+        /* Partner Preference Tab */
+        #partner-preference {
+            display: none;
+        }
+
+        #partner-preference.active {
+            display: block;
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (min-width: 992px) {
+            .main-content {
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .container-fluid {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .profile-content-wrapper {
+                display: grid;
+                grid-template-columns: minmax(300px, 400px) 1fr;
+                gap: 30px;
+                margin-top: 30px;
+            }
+
+            .profile-card {
+                position: sticky;
+                top: 90px;
+                width: 100%;
+            }
+
+            .details-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+            }
+
+            .details-section {
+                margin: 0;
+                width: 100%;
+            }
+
+            .details-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .detail-item {
+                width: 100%;
+            }
+        }
+
+        /* Tablet Adjustments */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .main-content {
+                padding: 15px;
+            }
+
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .container-fluid {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 767px) {
+            .main-content {
+                padding: 10px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .container-fluid {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .profile-card {
+                margin: 0 -10px;
+                border-radius: 0;
+            }
+
+            .detail-item {
+                padding: 12px;
+            }
+        }
+
+        /* General Responsive Fixes */
+        * {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .details-section {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .detail-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Fix for tables on mobile */
+        .education-table,
+        .career-table {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Ensure icons don't cause overflow */
+        .detail-icon {
+            flex-shrink: 0;
+        }
+
+        /* Partner Preference Cards Layout */
+        .preference-cards-container {
+            display: grid;
+            gap: 20px;
+            width: 100%;
+            padding: 15px;
+        }
+
+        .preference-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .preference-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .details-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .detail-item {
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+        }
+
+        .detail-value {
+            font-size: 13px;
+        }
+
+        /* Extra Large Screens */
+        @media (min-width: 1400px) {
+            .preference-cards-container {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .preference-card {
+                padding: 20px;
+            }
+
+            .detail-label {
+                font-size: 13px;
+            }
+
+            .detail-value {
+                font-size: 14px;
+            }
+        }
+
+        /* Large Screens */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .preference-cards-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+
+        /* Medium Screens */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .preference-cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .preference-card {
+                padding: 15px;
+            }
+        }
+
+        /* Small Screens */
+        @media (max-width: 767px) {
+            .preference-cards-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+                gap: 15px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .preference-card {
+                padding: 12px;
+            }
+
+            .preference-card-title {
+                font-size: 15px;
+                margin-bottom: 12px;
+            }
+
+            .detail-item {
+                padding: 8px;
+            }
+
+            .detail-label {
+                font-size: 11px;
+            }
+
+            .detail-value {
+                font-size: 12px;
+            }
+        }
+
+        /* Very Small Screens */
+        @media (max-width: 360px) {
+            .preference-cards-container {
+                padding: 8px;
+                gap: 12px;
+            }
+
+            .preference-card {
+                padding: 10px;
+            }
+
+            .preference-card-title {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+
+            .detail-item {
+                padding: 6px;
+            }
+
+            .detail-icon {
+                width: 18px;
+                height: 18px;
+            }
+
+            .detail-icon i {
+                font-size: 12px;
+            }
+        }
+
+        /* Ensure content doesn't overflow */
+        #partner-preference {
+            width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <header class="custom-header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!-- Left: Hamburger Menu -->
+                <div class="col-auto">
+                    <button class="hamburger-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </button>
+                </div>
+                
+                <!-- Center: Logo -->
+                <div class="col logo-container">
+                    <a href="#" class="custom-logo">
+                        <div class="logo-icon">Sj</div>
+                        <span>Shubbh Vivah</span>
+                    </a>
+                </div>
+                
+                <!-- Right: Notification Bell -->
+                <div class="col-auto">
+                    <button class="notification-btn" type="button">
+                        <i class="fas fa-bell"></i>
+                        <div class="notification-badge"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Offcanvas (for mobile menu) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profiles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Matches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs-container">
+            <div class="container-fluid px-3">
+                <div class="nav-tabs-wrapper">
+                    <button class="nav-tab active">Detailed Profile</button>
+                    <button class="nav-tab">Partner Preference</button>
+                    <button class="nav-tab">Photo Gallery</button>
+                    <div class="nav-actions">
+                        <button class="action-btn">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content-wrapper">
+            <!-- Profile Card Column -->
+            <div class="profile-card-column">
+                <div class="profile-card">
+                    <div class="profile-image-container">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b589?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Profile" class="profile-image">
+                        <div class="online-indicator"></div>
+                        <div class="profile-actions-top">
+                            <button class="profile-action-btn gallery-btn">
+                                <i class="fas fa-images"></i>
+                                <span class="badge">3</span>
+                            </button>
+                        </div>
+                        <div class="profile-overlay">
+                            <div class="profile-info">
+                                <h3 class="profile-name">
+                                    Navdeep kaur Grewal
+                                    <i class="fas fa-check-circle verified-icon"></i>
+                                </h3>
+                                <div class="profile-details">
+                                    <span class="profile-age">
+                                        <i class="fas fa-calendar-alt"></i> 32 Years
+                                    </span>
+                                    <span class="profile-height">
+                                        <i class="fas fa-ruler-vertical"></i> 5' 5"
+                                    </span>
+                                    <span class="profile-religion">
+                                        <i class="fas fa-om"></i> Sikh
+                                    </span>
+                                </div>
+                                <div class="profile-location">
+                                    <i class="fas fa-map-marker-alt"></i> Punjab, India
+                                </div>
+                            </div>
+                            
+                            <div class="profile-actions">
+                                <button class="action-btn skip-btn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <button class="action-btn like-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button class="action-btn message-btn">
+                                    <i class="fas fa-comment"></i>
+                                </button>
+                                <button class="action-btn shortlist-btn">
+                                    <i class="fas fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Column -->
+            <div class="details-column">
+                <!-- About Section -->
+                <div class="about-section">
+                    <h4 class="about-title">About Navdeep kaur Grewal</h4>
+                    <div class="member-info">
+                        <div class="member-id">
+                            <i class="fas fa-id-card"></i>
+                            <span class="id-number">Si2025011035</span>
+                        </div>
+                        <div class="profile-relation">
+                            <i class="fas fa-user-friends"></i>
+                            <span class="relation-text">On Behalf: My Daughter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Profile Content -->
+                <div class="details-container">
+                    <!-- All the existing detailed profile sections -->
+                    <!-- Basic Details Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-user section-icon"></i>
+                            <h4 class="section-title">Basic Information</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <div class="detail-item pink-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-birthday-cake"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Birth Day</div>
+                                    <div class="detail-value">18/12/1992</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item cyan-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Marital Status</div>
+                                    <div class="detail-value">Unmarried</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item purple-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-venus"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Gender</div>
+                                    <div class="detail-value">Female</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item yellow-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-om"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Religion</div>
+                                    <div class="detail-value">Sikh</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item green-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Caste</div>
+                                    <div class="detail-value">Jatt</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item blue-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">First Language</div>
+                                    <div class="detail-value">Punjabi</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item red-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Children</div>
+                                    <div class="detail-value">None</div>
+                                </div>
+                            </div>
+
+                            <!-- Contact Details -->
+                            <div class="detail-item teal-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Contact Number</div>
+                                    <div class="detail-value">+xx xxx xxx xxx</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Details Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-map-marked-alt section-icon"></i>
+                            <h4 class="section-title">Present Address</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <div class="detail-item orange-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Country</div>
+                                    <div class="detail-value">India</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item cyan-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-map"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">State</div>
+                                    <div class="detail-value">Punjab</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item purple-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-city"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">City</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item pink-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-mail-bulk"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Postal Code</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-graduation-cap section-icon"></i>
+                            <h4 class="section-title">Education</h4>
+                        </div>
+                        
+                        <table class="education-table">
+                            <thead>
+                                <tr>
+                                    <th>Degree</th>
+                                    <th>Institution</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>B.Tech</td>
+                                    <td>Punjab Technical University</td>
+                                    <td>2010</td>
+                                    <td>2014</td>
+                                    <td><span class="status-badge status-completed">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>12th</td>
+                                    <td>Punjab School Education Board</td>
+                                    <td>2008</td>
+                                    <td>2010</td>
+                                    <td><span class="status-badge status-completed">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>10th</td>
+                                    <td>Punjab School Education Board</td>
+                                    <td>2006</td>
+                                    <td>2008</td>
+                                    <td><span class="status-badge status-completed">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Career Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-briefcase section-icon"></i>
+                            <h4 class="section-title">Career</h4>
+                        </div>
+                        
+                        <table class="career-table">
+                            <thead>
+                                <tr>
+                                    <th>Designation</th>
+                                    <th>Company</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Senior Software Engineer</td>
+                                    <td>Cognizant</td>
+                                    <td>2020</td>
+                                    <td>Present</td>
+                                    <td><span class="status-badge status-ongoing">Current</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Software Engineer</td>
+                                    <td>TCS</td>
+                                    <td>2016</td>
+                                    <td>2020</td>
+                                    <td><span class="status-badge status-completed">Previous</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Junior Developer</td>
+                                    <td>Infosys</td>
+                                    <td>2014</td>
+                                    <td>2016</td>
+                                    <td><span class="status-badge status-completed">Previous</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    
+
+                    <!-- Physical Attributes Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-user-alt section-icon"></i>
+                            <h4 class="section-title">Physical Attributes</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <div class="detail-item purple-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Height</div>
+                                    <div class="detail-value">5' 5"</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item blue-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-weight"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Weight</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item cyan-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Eye Color</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item pink-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Hair Color</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item yellow-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-tint"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Blood Group</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item orange-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Complexion</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item green-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-male"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Body Type</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item red-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Body Art</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item teal-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-wheelchair"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Disability</div>
+                                    <div class="detail-value">None</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Residency Information Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-globe-americas section-icon"></i>
+                            <h4 class="section-title">Residency Information</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <!-- Birth Country -->
+                            <div class="detail-item blue-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Birth Country</div>
+                                    <div class="detail-value">India</div>
+                                </div>
+                            </div>
+
+                            <!-- Grow Up Country -->
+                            <div class="detail-item purple-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Grow Up Country</div>
+                                    <div class="detail-value">India</div>
+                                </div>
+                            </div>
+
+                            <!-- Residency Country -->
+                            <div class="detail-item green-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Residency Country</div>
+                                    <div class="detail-value">India</div>
+                                </div>
+                            </div>
+
+                            <!-- Immigration Status -->
+                            <div class="detail-item orange-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-passport"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Immigration Status</div>
+                                    <div class="detail-value">Citizen</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobbies & Interest Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-heart section-icon"></i>
+                            <h4 class="section-title">Hobbies & Interest</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <div class="detail-item blue-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-smile-beam"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Hobbies</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip hobby-chip"><i class="fas fa-paint-brush"></i>Painting</span>
+                                            <span class="interest-chip hobby-chip"><i class="fas fa-camera"></i>Photography</span>
+                                            <span class="interest-chip hobby-chip"><i class="fas fa-hiking"></i>Traveling</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item purple-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Music</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip music-chip"><i class="fas fa-music"></i>Punjabi</span>
+                                            <span class="interest-chip music-chip"><i class="fas fa-guitar"></i>Classical</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item pink-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-film"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Movies</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip movie-chip"><i class="fas fa-film"></i>Bollywood</span>
+                                            <span class="interest-chip movie-chip"><i class="fas fa-video"></i>Hollywood</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item green-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Sports</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip sport-chip"><i class="fas fa-volleyball-ball"></i>Volleyball</span>
+                                            <span class="interest-chip sport-chip"><i class="fas fa-table-tennis"></i>Table Tennis</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item orange-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Cuisines</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip cuisine-chip"><i class="fas fa-pepper-hot"></i>Punjabi</span>
+                                            <span class="interest-chip cuisine-chip"><i class="fas fa-cookie"></i>Chinese</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item brown-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Books</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip book-chip"><i class="fas fa-book"></i>Fiction</span>
+                                            <span class="interest-chip book-chip"><i class="fas fa-book-reader"></i>Self Help</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item cyan-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-tv"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">TV Shows</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip tv-chip"><i class="fas fa-tv"></i>Drama</span>
+                                            <span class="interest-chip tv-chip"><i class="fas fa-film"></i>Reality Shows</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item green-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Fitness Activities</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip fitness-chip"><i class="fas fa-running"></i>Jogging</span>
+                                            <span class="interest-chip fitness-chip"><i class="fas fa-yoga"></i>Yoga</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item pink-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Dress Styles</div>
+                                    <div class="detail-value">
+                                        <div class="interest-chips">
+                                            <span class="interest-chip fashion-chip"><i class="fas fa-tshirt"></i>Traditional</span>
+                                            <span class="interest-chip fashion-chip"><i class="fas fa-glasses"></i>Modern</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Attitude & Behavior Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-brain section-icon"></i>
+                            <h4 class="section-title">Personal Attitude & Behavior</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <div class="detail-item purple-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Affection</div>
+                                    <div class="detail-value">
+                                        <div class="attitude-tags">
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-hand-holding-heart"></i>Caring
+                                            </span>
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-smile-beam"></i>Affectionate
+                                            </span>
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-users"></i>Family-oriented
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item blue-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Political Views</div>
+                                    <div class="detail-value">
+                                        <div class="attitude-tags">
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-handshake"></i>Moderate
+                                            </span>
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-balance-scale-right"></i>Liberal on social issues
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item green-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-laugh"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Humor</div>
+                                    <div class="detail-value">
+                                        <div class="attitude-tags">
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-grin-squint"></i>Witty
+                                            </span>
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-laugh-beam"></i>Sarcastic
+                                            </span>
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-theater-masks"></i>Playful
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-item orange-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-pray"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Religious Service</div>
+                                    <div class="detail-value">
+                                        <div class="attitude-tags">
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-place-of-worship"></i>Regular temple visits
+                                            </span>
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-om"></i>Spiritual
+                                            </span>
+                                            <span class="attitude-chip">
+                                                <i class="fas fa-hands"></i>Traditional values
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spiritual & Social Background Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-om section-icon"></i>
+                            <h4 class="section-title">Spiritual & Social Background</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <!-- Religion -->
+                            <div class="detail-item orange-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-pray"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Religion</div>
+                                    <div class="detail-value">Sikh</div>
+                                </div>
+                            </div>
+
+                            <!-- Caste -->
+                            <div class="detail-item cyan-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Caste</div>
+                                    <div class="detail-value">Jatt</div>
+                                </div>
+                            </div>
+
+                            <!-- Sub Caste -->
+                            <div class="detail-item purple-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Sub Caste</div>
+                                    <div class="detail-value">Not Specified</div>
+                                </div>
+                            </div>
+
+                            <!-- Ethnicity -->
+                            <div class="detail-item pink-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-globe-asia"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Ethnicity</div>
+                                    <div class="detail-value">Punjabi</div>
+                                </div>
+                            </div>
+
+                            <!-- Personal Value -->
+                            <div class="detail-item blue-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Personal Values</div>
+                                    <div class="detail-value">
+                                        <div class="value-tags">
+                                            <span class="value-tag">Traditional</span>
+                                            <span class="value-tag">Modern Outlook</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Community Value -->
+                            <div class="detail-item green-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Community Values</div>
+                                    <div class="detail-value">
+                                        <div class="value-tags">
+                                            <span class="value-tag">Community Service</span>
+                                            <span class="value-tag">Social</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Family Value -->
+                            <div class="detail-item brown-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Family Values</div>
+                                    <div class="detail-value">
+                                        <div class="value-tags">
+                                            <span class="value-tag">Family-Oriented</span>
+                                            <span class="value-tag">Cultural</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lifestyle Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-heart section-icon"></i>
+                            <h4 class="section-title">Lifestyle</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <div class="detail-item green-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Diet</div>
+                                    <div class="detail-value">Vegetarian</div>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item red-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-wine-glass-alt"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Drink</div>
+                                    <div class="detail-value">Never</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Astronomic Information Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-moon section-icon"></i>
+                            <h4 class="section-title">Astronomic Information</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <!-- Sun Sign -->
+                            <div class="detail-item purple-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Sun Sign</div>
+                                    <div class="detail-value">Sagittarius</div>
+                                </div>
+                            </div>
+
+                            <!-- Time Of Birth -->
+                            <div class="detail-item blue-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Time Of Birth</div>
+                                    <div class="detail-value">10:30 AM</div>
+                                </div>
+                            </div>
+
+                            <!-- Moon Sign -->
+                            <div class="detail-item cyan-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Moon Sign</div>
+                                    <div class="detail-value">Taurus</div>
+                                </div>
+                            </div>
+
+                            <!-- City Of Birth -->
+                            <div class="detail-item orange-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-city"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">City Of Birth</div>
+                                    <div class="detail-value">Punjab, India</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Family Information Section -->
+                    <div class="details-section">
+                        <div class="section-header">
+                            <i class="fas fa-users section-icon"></i>
+                            <h4 class="section-title">Family Information</h4>
+                        </div>
+                        
+                        <div class="details-grid">
+                            <!-- Father -->
+                            <div class="detail-item blue-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Father</div>
+                                    <div class="detail-value">
+                                        <div class="value-tags">
+                                            <span class="value-tag">Business</span>
+                                            <span class="value-tag">Self Employed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mother -->
+                            <div class="detail-item purple-light-bg">
+                                <div class="detail-icon">
+                                    <i class="fas fa-female"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Mother</div>
+                                    <div class="detail-value">
+                                        <div class="value-tags">
+                                            <span class="value-tag">Homemaker</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Siblings -->
+                            <div class="detail-item green-light-bg single-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <div class="detail-content">
+                                    <div class="detail-label">Siblings</div>
+                                    <div class="detail-value">
+                                        <div class="value-tags">
+                                            <span class="value-tag">1 Brother</span>
+                                            <span class="value-tag">1 Sister</span>
+                                            <span class="value-tag">Both Married</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partner Preference Content -->
+                <div id="partner-preference" style="display: none;">
+                    <div class="preference-cards-container">
+                        <!-- Basic Details Card -->
+                        <div class="preference-card">
+                            <h4 class="preference-card-title">
+                                <i class="fas fa-user-circle"></i>
+                                Basic Details
+                            </h4>
+                            <div class="details-grid">
+                                <!-- General -->
+                                <div class="detail-item blue-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">General</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Height -->
+                                <div class="detail-item green-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-ruler-vertical"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Height</div>
+                                        <div class="detail-value">5.8 - 6</div>
+                                    </div>
+                                </div>
+
+                                <!-- Weight -->
+                                <div class="detail-item orange-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-weight"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Weight</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Marital Status -->
+                                <div class="detail-item cyan-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-ring"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Marital Status</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Children Acceptable -->
+                                <div class="detail-item pink-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-baby"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Children Acceptable</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Body Type -->
+                                <div class="detail-item purple-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-male"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Body Type</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Background Details Card -->
+                        <div class="preference-card">
+                            <h4 class="preference-card-title">
+                                <i class="fas fa-users"></i>
+                                Background & Location
+                            </h4>
+                            <div class="details-grid">
+                                <!-- Religion -->
+                                <div class="detail-item purple-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-pray"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Religion</div>
+                                        <div class="detail-value">Sikh</div>
+                                    </div>
+                                </div>
+
+                                <!-- Caste -->
+                                <div class="detail-item blue-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Caste</div>
+                                        <div class="detail-value">Jatt</div>
+                                    </div>
+                                </div>
+
+                                <!-- Sub Caste -->
+                                <div class="detail-item green-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-sitemap"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Sub Caste</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Residence Country -->
+                                <div class="detail-item orange-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-globe-americas"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Residence Country</div>
+                                        <div class="detail-value">Canada</div>
+                                    </div>
+                                </div>
+
+                                <!-- Preferred Country -->
+                                <div class="detail-item cyan-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Preferred Country</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Preferred State -->
+                                <div class="detail-item pink-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Preferred State</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lifestyle & Education Card -->
+                        <div class="preference-card">
+                            <h4 class="preference-card-title">
+                                <i class="fas fa-graduation-cap"></i>
+                                Education & Lifestyle
+                            </h4>
+                            <div class="details-grid">
+                                <!-- Education -->
+                                <div class="detail-item cyan-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Education</div>
+                                        <div class="detail-value">Master's Degrees</div>
+                                    </div>
+                                </div>
+
+                                <!-- Profession -->
+                                <div class="detail-item pink-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Profession</div>
+                                        <div class="detail-value">Working</div>
+                                    </div>
+                                </div>
+
+                                <!-- Language -->
+                                <div class="detail-item purple-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-language"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Language</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Diet -->
+                                <div class="detail-item blue-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Diet</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Smoking -->
+                                <div class="detail-item green-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-smoking-ban"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Smoking Acceptable</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Drinking -->
+                                <div class="detail-item orange-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-wine-glass-alt"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Drinking Acceptable</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Personal Value -->
+                                <div class="detail-item cyan-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Personal Value</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Family Value -->
+                                <div class="detail-item pink-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Family Value</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+
+                                <!-- Manglik -->
+                                <div class="detail-item purple-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-om"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Manglik</div>
+                                        <div class="detail-value">Does not matter</div>
+                                    </div>
+                                </div>
+
+                                <!-- Complexion -->
+                                <div class="detail-item blue-light-bg">
+                                    <div class="detail-icon">
+                                        <i class="fas fa-palette"></i>
+                                    </div>
+                                    <div class="detail-content">
+                                        <div class="detail-label">Complexion</div>
+                                        <div class="detail-value">Not Specified</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo Gallery Tab Content -->
+                <div id="photo-gallery" style="display: none;">
+                    <!-- Empty state - no content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialize tabs
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all tab buttons and content sections
+            const tabButtons = document.querySelectorAll('.nav-tab');
+            const detailedProfile = document.querySelector('.details-container');
+            const partnerPreference = document.getElementById('partner-preference');
+            const photoGallery = document.getElementById('photo-gallery');
+            const aboutSection = document.querySelector('.about-section');
+
+            // Initially show detailed profile and hide others
+            detailedProfile.style.display = 'grid';
+            partnerPreference.style.display = 'none';
+            photoGallery.style.display = 'none';
+            aboutSection.style.display = 'block';
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    // Show/hide content based on tab
+                    const tabName = button.textContent.trim();
+                    if (tabName === 'Partner Preference') {
+                        detailedProfile.style.display = 'none';
+                        partnerPreference.style.display = 'block';
+                        photoGallery.style.display = 'none';
+                        aboutSection.style.display = 'none';
+                    } else if (tabName === 'Photo Gallery') {
+                        detailedProfile.style.display = 'none';
+                        partnerPreference.style.display = 'none';
+                        photoGallery.style.display = 'block';
+                        aboutSection.style.display = 'none';
+                    } else if (tabName === 'Detailed Profile') {
+                        detailedProfile.style.display = 'grid';
+                        partnerPreference.style.display = 'none';
+                        photoGallery.style.display = 'none';
+                        aboutSection.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
