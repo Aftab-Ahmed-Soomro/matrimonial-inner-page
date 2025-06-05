@@ -229,16 +229,16 @@
         
         /* Profile Card */
         .profile-card {
-            max-width: 400px;
+            max-width: 300px;
             margin: 0 auto;
         }
         
         .profile-image-container {
             position: relative;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
             aspect-ratio: 3/4;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
         }
         
         .profile-image {
@@ -300,25 +300,25 @@
         }
         
         .profile-name {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         
         .verified-icon {
             color: #28a745;
-            font-size: 18px;
+            font-size: 16px;
         }
         
         .profile-details {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 8px;
-            font-size: 14px;
+            gap: 12px;
+            margin-bottom: 6px;
+            font-size: 13px;
         }
         
         .profile-details span {
@@ -342,8 +342,8 @@
         }
         
         .action-btn {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 2px solid rgba(255, 255, 255, 0.3);
             background: rgba(255, 255, 255, 0.1);
@@ -351,7 +351,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 16px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
@@ -387,7 +387,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            max-width: 400px;
+            max-width: 300px;
             margin: 0 auto;
         }
         
@@ -1633,23 +1633,13 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <!-- Navigation Tabs -->
-        <div class="nav-tabs-container">
-            <div class="container-fluid px-3">
-                <div class="nav-tabs-wrapper">
-                    <button class="nav-tab active">Detailed Profile</button>
-                    <button class="nav-tab">Partner Preference</button>
-                    <button class="nav-tab">Photo Gallery</button>
-                </div>
-            </div>
-        </div>
 
         <div class="profile-content-wrapper">
             <!-- Profile Card Column -->
             <div class="profile-card-column">
                 <div class="profile-card">
                     <div class="profile-image-container">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b589?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Profile" class="profile-image">
+                        <img src="data:image/jpeg;base64,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" alt="Profile" class="profile-image">
                         <div class="online-indicator"></div>
                         <div class="profile-actions-top">
                             <button class="profile-action-btn gallery-btn">
@@ -1700,6 +1690,28 @@
 
             <!-- Details Column -->
             <div class="details-column">
+                <!-- Navigation Tabs -->
+                <div class="nav-tabs-container mb-4">
+                    <div class="container-fluid px-4">
+                        <div class="nav-tabs-wrapper">
+                            <button class="nav-tab active">
+                                <i class="fas fa-user-circle me-2"></i>
+                                Detailed Profile
+                                <div class="tab-indicator"></div>
+                            </button>
+                            <button class="nav-tab">
+                                <i class="fas fa-heart me-2"></i>
+                                Partner Preference
+                                <div class="tab-indicator"></div>
+                            </button>
+                            <button class="nav-tab">
+                                <i class="fas fa-images me-2"></i>
+                                Photo Gallery
+                                <div class="tab-indicator"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <!-- About Section -->
                 <div class="about-section">
                     <h4 class="about-title">About Navdeep kaur Grewal</h4>
