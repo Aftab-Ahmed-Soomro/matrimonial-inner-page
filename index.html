@@ -1570,6 +1570,312 @@
             width: 100%;
             overflow-x: hidden;
         }
+
+        /* Mobile First Base Styles */
+        body {
+            padding-top: 60px; /* Reduced from 70px for mobile */
+            font-size: 14px;
+        }
+
+        .custom-header {
+            padding: 8px 0;
+        }
+
+        .logo-container img {
+            height: 32px;
+            max-width: 140px;
+        }
+
+        .custom-logo {
+            font-size: 18px;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            font-size: 14px;
+        }
+
+        .hamburger-btn {
+            padding: 6px;
+        }
+
+        .hamburger-btn .line {
+            width: 18px;
+            margin: 3px 0;
+        }
+
+        .notification-btn {
+            width: 36px;
+            height: 36px;
+        }
+
+        .notification-btn i {
+            font-size: 16px;
+        }
+
+        /* Profile Card Mobile Styles */
+        .profile-card {
+            margin: 0 -15px;
+            border-radius: 0;
+        }
+
+        .profile-image-container {
+            border-radius: 0;
+        }
+
+        .profile-name {
+            font-size: 18px;
+        }
+
+        .profile-details {
+            font-size: 12px;
+            gap: 8px;
+        }
+
+        .profile-location {
+            font-size: 12px;
+        }
+
+        .action-btn {
+            width: 36px;
+            height: 36px;
+            font-size: 14px;
+        }
+
+        /* Details Section Mobile Styles */
+        .details-section {
+            padding: 12px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 16px;
+        }
+
+        .detail-item {
+            padding: 8px;
+        }
+
+        .detail-label {
+            font-size: 11px;
+        }
+
+        .detail-value {
+            font-size: 12px;
+        }
+
+        .detail-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .detail-icon i {
+            font-size: 12px;
+        }
+
+        /* Navigation Tabs Mobile Styles */
+        .nav-tabs-container {
+            padding: 10px 0 5px 0;
+        }
+
+        .nav-tab {
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        /* Tables Mobile Styles */
+        .education-table, .career-table {
+            font-size: 12px;
+        }
+
+        .education-table th, .career-table th,
+        .education-table td, .career-table td {
+            padding: 8px;
+        }
+
+        /* Interest Chips Mobile Styles */
+        .interest-chip {
+            font-size: 11px;
+            padding: 3px 8px;
+        }
+
+        .interest-chip i {
+            font-size: 10px;
+        }
+
+        /* Value Tags Mobile Styles */
+        .value-tag {
+            font-size: 11px;
+            padding: 2px 6px;
+        }
+
+        /* Attitude Chips Mobile Styles */
+        .attitude-chip {
+            font-size: 11px;
+            padding: 4px 10px;
+        }
+
+        .attitude-chip i {
+            font-size: 12px;
+        }
+
+        /* Container Adjustments */
+        .container-fluid {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 360px) {
+            body {
+                padding-top: 50px;
+            }
+
+            .custom-logo {
+                font-size: 16px;
+            }
+
+            .logo-icon {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .profile-name {
+                font-size: 16px;
+            }
+
+            .profile-details {
+                font-size: 11px;
+                gap: 6px;
+            }
+
+            .action-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .nav-tab {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+        }
+
+        @media (min-width: 361px) and (max-width: 576px) {
+            body {
+                padding-top: 55px;
+            }
+
+            .container-fluid {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        @media (min-width: 577px) and (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .profile-card {
+                margin: 0;
+                border-radius: 12px;
+            }
+
+            .profile-image-container {
+                border-radius: 12px;
+            }
+
+            .details-section {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .detail-label {
+                font-size: 12px;
+            }
+
+            .detail-value {
+                font-size: 13px;
+            }
+        }
+
+        /* Grid Layout Adjustments */
+        .details-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .details-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Partner Preference Mobile Styles */
+        .preference-cards-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            padding: 12px;
+        }
+
+        .preference-card {
+            padding: 12px;
+        }
+
+        .preference-card-title {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .preference-cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 15px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .preference-cards-container {
+                grid-template-columns: repeat(3, 1fr);
+                padding: 20px;
+            }
+        }
+
+        /* Fix for overflowing content */
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .details-section, .preference-card {
+            overflow: hidden;
+        }
+
+        .detail-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Ensure tables don't overflow */
+        .education-table, .career-table {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
     </style>
 </head>
 <body>
